@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundUtama"
+    tools:context=".ActivityEditTransaksi">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Masukkan Transaksi"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/input_nama"
+        android:background="@drawable/bkg_text"
+        android:hint="Nama Transaksi"
+        android:inputType="text"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:gravity="left"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/input_nominal"
+        android:background="@drawable/bkg_text"
+        android:hint="Nominal"
+        android:inputType="number"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:gravity="left"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/input_tanggal"
+        android:background="@drawable/bkg_text"
+        android:hint="Tanggal Transaksi"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:gravity="left"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/input_kategori"
+        android:background="@drawable/bkg_text"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:entries="@array/labels_array"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/input_catatan"
+        android:background="@drawable/bkg_text"
+        android:hint="Catatan"
+        android:inputType="text"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:gravity="top"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+</LinearLayout>
