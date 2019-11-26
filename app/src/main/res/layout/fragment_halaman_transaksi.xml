@@ -7,11 +7,33 @@ android:layout_height="match_parent"
 android:id="@+id/halaman_transaksi"
 android:background="@color/backgroundUtama"
 tools:context=".FragmentHalamanBudget">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Spinner
+
+                android:id="@+id/tahun_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:entries="@array/tahun_array">
+            </Spinner>
+            <Spinner
+                android:id="@+id/bulan_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:entries="@array/bulan_array">
+            </Spinner>
+        </LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"

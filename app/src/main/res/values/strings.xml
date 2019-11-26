@@ -14,7 +14,7 @@
         <item>Lainnya</item>
     </string-array>
 
-    <string-array name="bulan">
+    <string-array name="bulan_array">
         <item>Januari</item>
         <item>Februari</item>
         <item>Maret</item>
@@ -29,7 +29,7 @@
         <item>Desember</item>
     </string-array>
 
-    <string-array name="tahun">
+    <string-array name="tahun_array">
         <item>2019</item>
         <item>2020</item>
         <item>2021</item>

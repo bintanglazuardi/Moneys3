@@ -13,9 +13,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 /**
@@ -23,6 +27,7 @@ import android.widget.Toast;
  */
 public class FragmentHalamanTransaksi extends Fragment {
     private ImageButton tambahTransaksi;
+    private Spinner spinnerTahun, spinnerBulan;
 
     public FragmentHalamanTransaksi() {
         // Required empty public constructor
@@ -34,18 +39,35 @@ public class FragmentHalamanTransaksi extends Fragment {
                              Bundle savedInstanceState) {
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         View view = inflater.inflate(R.layout.fragment_halaman_transaksi, container, false);
+
         tambahTransaksi = view.findViewById(R.id.tambah_transaksi);
         tambahTransaksi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(getActivity(), ActivityTambahTransaksi.class);
                 startActivity(mIntent);
-                /*FragmentTambahTransaksi fragment = new FragmentTambahTransaksi();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.halaman_transaksi, fragment);
-                fragmentTransaction.commit();*/
+
             }
         });
+        spinnerBulan = view.findViewById(R.id.bulan_spinner);
+        ArrayAdapter<CharSequence> adapterTahun = ArrayAdapter.createFromResource
+                (getActivity(),R.array.tahun_array, R.layout.spinner_item);
+        adapterTahun.setDropDownViewResource(
+                R.layout.spinner_item);
+
+        /*if (spinnerTahun != null){
+            spinnerTahun.setOnItemSelectedListener(getActivity());
+        }*/
+
+        spinnerBulan = view.findViewById(R.id.bulan_spinner);
+        ArrayAdapter<CharSequence> adapterBulan = ArrayAdapter.createFromResource
+                (getActivity(),R.array.bulan_array, R.layout.spinner_item);
+        adapterBulan.setDropDownViewResource(
+                R.layout.spinner_item);
+
+        /*if (spinnerBulan != null){
+            spinnerBulan.setOnItemSelectedListener(getActivity());
+        }*/
 
         return view;
     }
