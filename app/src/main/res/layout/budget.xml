@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0B3C"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="Pemasukan Tiap Bulan "
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70dp"
+        android:textSize="16dp"
+        android:padding="10dp"
+        />
+
+    <EditText
+        android:id="@+id/NominalBudget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_green_light"
+        android:hint="Masukkan Nominal"
+        android:background="@drawable/bkg_text"
+        android:layout_gravity="center_horizontal"
+        android:textSize="22dp"/>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Next"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bkg_btn"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" />
+
+
+
+
+</LinearLayout>
