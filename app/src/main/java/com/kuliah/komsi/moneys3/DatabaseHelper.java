@@ -1,6 +1,8 @@
 package com.kuliah.komsi.moneys3;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -36,5 +38,57 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(sqLiteDatabase);
+    }
+
+    public boolean addTransaksi(Transaksi transaksi){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_NAMA, transaksi.getNama());
+        contentValues.put(COL_NOMINAL, transaksi.getNominal());
+        contentValues.put(COL_TANGGAL, transaksi.getTanggal());
+        contentValues.put(COL_KATEGORI, transaksi.getKategori());
+        contentValues.put(COL_CATATAN, transaksi.getCatatan());
+        long result = sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
+        if (result == -1){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    public Cursor getAllTransaksis(){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        return sqLiteDatabase.rawQuery("SELECT * FROM "+ TABLE_NAME, null);
+    }
+
+    public boolean updateTransaksi(Transaksi transaksi, int id){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_NAMA, transaksi.getNama());
+        contentValues.put(COL_NOMINAL, transaksi.getNominal());
+        contentValues.put(COL_TANGGAL, transaksi.getTanggal());
+        contentValues.put(COL_KATEGORI, transaksi.getKategori());
+        contentValues.put(COL_CATATAN, transaksi.getCatatan());
+
+        int update = sqLiteDatabase.update(TABLE_NAME, contentValues, COL_ID + " = ? ",
+                new String[]{String.valueOf(id)} );
+        if (update != 1){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    public Cursor getTransaksiID(Transaksi transaksi){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        String sql = "SELECT * FROM " + TABLE_NAME  +
+                " WHERE " + COL_NAMA + " = '" + transaksi.getNama() + "'" +
+                " AND " + COL_NOMINAL + " = '" + transaksi.getNominal() + "'";
+        return sqLiteDatabase.rawQuery(sql, null);
+    }
+
+    public Integer deleteTransaksi(int id){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        return sqLiteDatabase.delete(TABLE_NAME, "ID = ?", new String[] {String.valueOf(id)});
     }
 }

@@ -24,7 +24,6 @@
         android:hint="Nama Transaksi"
         android:inputType="text"
         android:text=""
-        android:textColor="@android:color/white"
         android:textSize="15sp"
         android:gravity="left"
         android:layout_marginLeft="50dp"
@@ -40,7 +39,6 @@
         android:hint="Nominal"
         android:inputType="number"
         android:text=""
-        android:textColor="@android:color/white"
         android:textSize="15sp"
         android:gravity="left"
         android:layout_marginLeft="50dp"
@@ -55,7 +53,6 @@
         android:background="@drawable/bkg_text"
         android:hint="Tanggal Transaksi"
         android:text=""
-        android:textColor="@android:color/white"
         android:textSize="15sp"
         android:gravity="left"
         android:layout_marginLeft="50dp"
@@ -80,20 +77,19 @@
         android:entries="@array/labels_array"/>
 
     <EditText
+        android:id="@+id/input_catatan"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/input_catatan"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/bkg_text"
+        android:gravity="top"
         android:hint="Catatan"
         android:inputType="text"
         android:text=""
-        android:textColor="@android:color/white"
-        android:textSize="15sp"
-        android:gravity="top"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
+        android:textSize="15sp" />
 
     <TextView
         android:layout_width="match_parent"

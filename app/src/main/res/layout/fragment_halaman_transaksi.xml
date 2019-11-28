@@ -19,10 +19,11 @@ tools:context=".FragmentHalamanBudget">
             android:orientation="vertical">
 
             <Spinner
-
                 android:id="@+id/tahun_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/white"
+                android:foregroundTint="@android:color/white"
                 android:layout_gravity="center_horizontal"
                 android:entries="@array/tahun_array">
             </Spinner>
@@ -30,6 +31,8 @@ tools:context=".FragmentHalamanBudget">
                 android:id="@+id/bulan_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:foregroundTint="@android:color/white"
+                android:backgroundTint="@android:color/white"
                 android:layout_gravity="center_horizontal"
                 android:entries="@array/bulan_array">
             </Spinner>

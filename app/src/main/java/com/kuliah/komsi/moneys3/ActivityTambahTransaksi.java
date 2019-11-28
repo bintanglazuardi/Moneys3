@@ -10,13 +10,22 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class ActivityTambahTransaksi extends AppCompatActivity {
     private Button btnScan;
     private TextView inputTanggal;
+    private EditText inputNama, inputNominal, inputCatatan;
+    private Spinner inputKategori;
+    private ListView transaksiList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +41,20 @@ public class ActivityTambahTransaksi extends AppCompatActivity {
                 startActivity(scanPage);
             }
         });
-
+        inputNama = findViewById(R.id.input_nama);
+        inputNominal = findViewById(R.id.input_nominal);
         inputTanggal = findViewById(R.id.input_tanggal);
+        inputKategori = findViewById(R.id.input_kategori);
+        inputCatatan = findViewById(R.id.input_catatan);
 
+    }
+
+    private boolean checkStringIfNull(String string){
+        if (string.equals("")){
+            return false;
+        }else {
+            return true;
+        }
     }
 
     @Override
@@ -48,9 +68,21 @@ public class ActivityTambahTransaksi extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId()==R.id.save){
-            Toast.makeText(this, "Data Disimpan", Toast.LENGTH_SHORT).show();
-            onBackPressed();
-//            startActivity(new Intent(this, MainActivity.class));
+            if (checkStringIfNull(inputNama.getText().toString())){
+                DatabaseHelper databaseHelper = new DatabaseHelper(this);
+                Transaksi transaksi = new Transaksi(inputNama.getText().toString(),
+                        inputNominal.getText().toString(),
+                        inputTanggal.getText().toString(),
+                        inputKategori.getSelectedItem().toString(),
+                        inputCatatan.getText().toString());
+                if (databaseHelper.addTransaksi(transaksi)){
+                    Toast.makeText(this, "Data Disimpan", Toast.LENGTH_SHORT).show();
+                    onBackPressed();
+                }else{
+                    Toast.makeText(this, "Error: Gagal menyimpan data", Toast.LENGTH_SHORT).show();
+                    onBackPressed();
+                }
+            }
         }
         return true;
     }
